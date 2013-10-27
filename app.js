@@ -11,7 +11,7 @@ var http      = require('http');
 var path      = require('path');
 var mongo     = require('mongodb');
 var monk      = require('monk');
-var db        = monk('localhost:27017/nodetest');
+var db        = monk('localhost:27017/eventdata');
 var objID     = mongo.ObjectID;
 var validator = require('express-validator');
 

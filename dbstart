@@ -2,4 +2,4 @@
 
 MONGO_BIN="../mongodb/bin"
 
-$MONGO_BIN/mongod --dbpath data/ & 
+$MONGO_BIN/mongod --dbpath ../eventdata/ & 

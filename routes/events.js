@@ -22,7 +22,7 @@ exports.addevent = function (db) {
             'date': req.body.date,
             'time': req.body.time,
             'location': req.body.location,
-            'contact': req.body.contact
+            'contact': req.body.contact,
             'food': req.body.food,
             'notes': req.body.notes,
         }, function (err, doc) {

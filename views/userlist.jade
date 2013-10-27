@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    .container
+        div(class="panel panel-default")
+            .panel-heading 
+                h3.panel-title User List
+            .panel-body
+                p.
+                    This is a basic panel/table merger to display a listing of
+                    users registered on the site. This includes a user name and
+                    email.
+
+
+            table(class="table table-hover")
+                thead
+                    tr
+                        th #
+                        th Username 
+                        th Email
+                        th 
+                tbody
+                    if userlist
+                        each user, i in userlist
+                            tr(id=i)
+                                td= i + 1
+                                td= user.username 
+                                td= user.email
+                                td
+                                    button(type="button", id=user._id, class="close", aria-hidden="true") &times;                    
+                    else
+                        tr
+                            td(colspan="4")
+                                p.text-center No users found!
+
+

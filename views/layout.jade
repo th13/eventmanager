@@ -45,14 +45,10 @@ html(lang="en")
                                 li.active: a(href="/events") Events 
                             else
                                 li: a(href="/events") Events
-                            if active === "userlist"
-                                li.active: a(href="/users") Users
-                            else
-                                li: a(href="/users") Users
-                            if active === "newuser"
-                                li.active: a(href="/users/new") Add New
-                            else
-                                li: a(href="/users/new") Add New
+                            if active == "newevent"
+                            	li.active: a(href="/events/new") Add Event 
+                            else 
+                            	li: a(href="/events/new") Add Event 
 
                             li.dropdown
                                 a(href="#", class="dropdown-toggle", data-toggle="dropdown") Dropdown 
@@ -62,9 +58,9 @@ html(lang="en")
                                     li: a(href="#") Another action
                                     li: a(href="#") Something else here
                                     li.divider
-                                    li.dropdown-header Nav header
-                                    li: a(href="#") Separated link
-                                    li: a(href="#") One more separated link
+                                    li.dropdown-header Users Management
+                                    li: a(href="/users") View All
+                                    li: a(href="/users/new") Add New
             
             block content
 

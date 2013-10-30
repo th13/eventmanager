@@ -64,8 +64,10 @@ app.get('/', routes.index);
 app.get('/users', user.list(db));
 app.get('/users/new', user.newuser);
 app.get('/events', events.eventslist(db));
+app.get('/events/new', events.newevent);
 
 app.post('/users/new', user.adduser(db));
+app.post('/events/new', events.addevent(db));
 
 app.delete('/users/delete/:id', user.deluser(db));
 

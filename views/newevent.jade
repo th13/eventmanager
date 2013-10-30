@@ -1,0 +1,64 @@
+extends layout
+
+block content
+	.container
+
+		if errors.length
+			// Errors in the form
+			div(class="alert alert-danger alert-dismissable")
+				button.close(type="button", data-dismiss="alert", aria-hidden="true") &times;
+				strong= "Sorry! "
+				| There were errors in the form.
+				= JSON.stringify(errors)
+
+		div(class="panel panel-default")
+			.panel-heading
+				h3.panel-title= title 
+			.panel-body
+				p
+					| Here, you can add a new event with relevant information.
+					| Beware, as data validation is not-so-good as of yet.
+
+				form.form-horizontal(name="addevent", method="post", action="/events/new", role="form")
+					
+					// Event name
+					.form-group
+						label(for="eventname", class="col-lg-2 control-label") Event name
+						.col-lg-4
+							input#eventname(type="text", class="form-control", placeholder="Enter event name", name="eventname", value=eventname)
+
+					// Date
+					.form-group
+						label(for="date", class="col-lg-2 control-label") Date 
+						.col-lg-4 
+							input#date(type="text", class="form-control", placeholder="Enter a date (dd/mm/yyyy)", name="date", value=date)
+
+					// Time
+					.form-group
+						label(for="time", class="col-lg-2 control-label") Time
+						.col-lg-4 
+							input#time(type="text", class="form-control", placeholder="Enter a time (hh:mm *m - hh:mm *m", name="time", value=time)
+
+					// Location
+					.form-group
+						label(for="location", class="col-lg-2 control-label") Location 
+						.col-lg-4 
+							input#location(type="text", class="form-control", placeholder="Enter a location", name="location", value=location)
+
+					// Contact
+					.form-group
+						label(for="contact", class="col-lg-2 control-label") Contact 
+						.col-lg-4 
+							input#contact(type="text", class="form-control", placeholder="Enter a contact (First Last)", name="contact", value=contact)
+
+					// Notes
+					.form-group
+						label(for="notes", class="col-lg-2 control-label") Notes 
+						.col-lg-4 
+							textarea#notes(type="text", class="form-control", name="notes", value=notes)
+
+					// Submit
+					.form-group
+						div(class="col-lg-offset-2 col-lg-4")
+							button(type="submit", class="btn btn-default") Submit
+

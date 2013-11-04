@@ -42,13 +42,13 @@ html(lang="en")
                                     a(href="/")
                                         span(class="glyphicon glyphicon-home")
                             if active == "eventslist"
-                                li.active: a(href="/events") Events 
+                                li.active: a(href="/events") Events
                             else
                                 li: a(href="/events") Events
                             if active == "newevent"
-                            	li.active: a(href="/events/new") Add Event 
-                            else 
-                            	li: a(href="/events/new") Add Event 
+                                li.active: a(href="/events/new") Add Event
+                            else
+                                li: a(href="/events/new") Add Event 
 
                             li.dropdown
                                 a(href="#", class="dropdown-toggle", data-toggle="dropdown") Dropdown 

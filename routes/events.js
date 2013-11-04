@@ -6,7 +6,11 @@ exports.eventslist = function (db) {
         var eventslist = db.get('eventslist');
 
         eventslist.find({}, {}, function(err, docs) {
-            res.send(JSON.stringify(docs));
+            res.render('eventlist', {
+                "eventslist": docs,
+                title: "Events List",
+                active: "eventslist"
+            });
         });
     };
 };
@@ -40,6 +44,29 @@ exports.addevent = function (db) {
         }, function (err, doc) {
             if (err) {
                 res.send("There was a problem adding to the db: " + err);
+            }
+            else {
+                res.redirect('events');
+            }
+        });
+    };
+};
+
+
+/*
+ * DELETE event by id
+ */
+
+exports.delevent = function (db) {
+    return function (req, res) {
+        var id       = req.params.id;
+        var eventslist = db.get('eventslist');
+
+        eventslist.remove({ 
+            "_id": eventslist.id(id)
+        }, function (err, doc) {
+            if (err) {
+                res.send("There was a problem deleting the user.");
             }
             else {
                 res.redirect('events');

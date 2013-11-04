@@ -1,4 +1,4 @@
-$('.close').on('click', function() {
+$('.userdel').on('click', function() {
     var id = $(this).attr("id");
     var $row = $(this).parent().parent();
 
@@ -8,4 +8,16 @@ $('.close').on('click', function() {
     });
 
     $row.fadeOut();
+});
+
+$('.eventdel').on('click', function() {
+	var id = $(this).attr("id");
+	var $row = $(this).parent().parent();
+
+	$.ajax({
+		type: "DELETE",
+		url: "/events/delete/" + id
+	});
+
+	$row.fadeOut();
 });

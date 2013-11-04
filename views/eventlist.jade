@@ -1,4 +1,28 @@
 extends layout
 
 block content
-    
+    .container
+        div(class="panel panel-default")
+            .panel-heading 
+                h3.panel-title Events List
+            .panel-body
+                p.
+                    Here are all of the events planned.
+
+        if eventslist
+            .row
+                each event, i in eventslist
+                    div(class="col-lg-4")
+                        h2= event.name
+                             button(type="button", id=event._id, class="close eventdel", aria-hidden="true") &times;
+                        p
+                            strong Date: 
+                            = event.date
+                        p
+                            strong Time: 
+                            = event.time
+                        p
+                            strong Location: 
+                            = event.location
+                        p
+                            a(class="btn btn-default", href="/events/#{event._id}", role="button") View more &raquo; 

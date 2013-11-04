@@ -70,6 +70,7 @@ app.post('/users/new', user.adduser(db));
 app.post('/events/new', events.addevent(db));
 
 app.delete('/users/delete/:id', user.deluser(db));
+app.delete('/events/delete/:id', events.delevent(db));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
